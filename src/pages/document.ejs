@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="oupengmobile" content="portrait" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="icon" href="<%= context.config.publicPath +'favicon.ico'%>" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="<%= context.config.publicPath +'logo192.png'%>" />
+    <link rel="manifest" href="<%= context.config.publicPath +'manifest.json'%>" />
+    <title>Loading...</title>
+    <style>
+      #root {
+        background-color: #fff;
+      }
+      #root-loading {
+        width: 100vw;
+        height: 100vh;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAQlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACO4fbyAAAAFXRSTlMANekY2AzyQbrJKpqvdVNegmiQpSF3HSQkAAAEmUlEQVRo3sWb17LUMAyGXeRup67f/1VhgBmKi6TEZ/hvYc8XybLaZgVbRm4l5QCgvgsg5FQ2qcXXKp4ZVO1IQS5SfI30nkKdCu5zueVmT6oSZO99JTseqpKlrlU+d7ky5bcVWF8fKLxFy1wfKrg3IZXqC93xKXeD+krqfGbuXV/L6wfmqrpAdudyj7pIiefmXJcpMNwdoS4UOCpXqrpUlkh2dbk2Ine99lXc9TZLztnZSpdD4pkSVyof++Zk/C7ptv3I8DrCDKCfz4czzcdcuRX6uHoC9lgyOPW4JcM+DI/zZJLIOV12/vlnAZ0I5VUf9sGlMrNjysSq/kkz8kf0lCeBwahuLkxipFuAJ+bqVQ1TYTn6EEydY3J7Yoly89/Xt9xcheHxSvFAEaipM4y48WFnDLQ04hAuX3pE3ikG27GfdXTfFfX4RiuCyZJXy+KegvrlkpB2yauwG547StfU0zd5oXQN31GT4zD0W+zV9aBNHyGoV1Q2VQkvoEUNr3svzcDcIKOIbZIMyGBKrHdxmqU9f5wqRGef039tDq1UVFeTR2ZFylikXWCMcYn2tHIS9ZpmL2azseN6d9eO7qZaE3U2jhrGdSDUzWgrVY5gsjKj7BGa4kUWGEJHtY3ahYIcMOOYZff/DJ7I6sZdDDmj/5CBQZIAPEtflSdlf0sp2y8URqGeNnW9opB4ZJ51vbbuBVWGGdJ8FVHQI471C5S6FeKgNBJ5dxLVdg0qmu/eph2PaXDvVqJBBLQFCEh6wpT6jRdgQW0UkspRBTJYYrGVMRYaJEqg9jjkLHB9LBFsUbAULMF/AhsquC4Gx56rnwWXfB9c+HXSigLmXyc8gQAFzE8geMpMOJi/AwqMIoGDjdT/SBYYFYkDTUySDvZV/a1xWew3Ak1wEF2tQyXqoLQ+hXHGngjeSM0eCuaToxCAT06JATaeOm5kvNvTCJhvs29OsL/SPhAwm5ya2zLYQwAC5np7G61m7KeZvBAwanM7m92UncI5Bhs+OY8nFPvvn7uGYOcN4u1BTtaWtMBJI7CuwSA2DxLUTdq+iGsEVtXzvB2mM8rd7hOH4B7ZeHQRpy1xZ+xgBK6e4+3YOBEbU8w1AnO87bFBNIlW0vbBHG87dPQ+O2Q1AldvaF+JQNs7E8qf7ls8stlh5kAfrD408JgM3fYGNxk0ETzydsJ2d2FENhxwa3PpG4ybXCEywC35Qr+8ziOyihxw9fNVVeiF60g7B1z9dOKTrC99k0HAQ3Jo6iGznDgM3Pf2TVoW6TrRpf8Eu/kADdsPgAvEZdE2I6uif4MvbIsO6UgBucLNbR+ij+9oY5vGSFWiPLKeGctmZ35iMva00ymhlUafHuyv/sRwt/c2iomcrUSFMxoTz1CpcuteYANY+fLcVr9EhbSVWq8DgeI2r7eXH2H888XJsBKrGEtmHRZyJfOdrEXKRvB02kVhxdZngbtBiicqr2+vWfArCb68E8+1PfY3nOKddniELeK99sC31oglcjcHm51Z+ZsyT6OG9b8wk0dW+LvX4kukt8tDHwo+bVp8qeJWkg8A6ocAgk9li+xj/QZxVIXT5tCEzwAAAABJRU5ErkJggg==) no-repeat center / 32px 32px;
+        opacity: .15;
+        animation: root-loading 600ms infinite;
+      }
+      @keyframes root-loading {
+        0%, 100% {
+          opacity: .15;
+        }
+        50% {
+          opacity: .25;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div id="root-loading"></div>
+    </div>
+  </body>
+</html>

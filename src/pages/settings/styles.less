@@ -1,0 +1,34 @@
+.table {
+  height: calc(100vh - @layout-header-height);
+  :global {
+    .@{table-prefix-cls} {
+      height: calc(100vh - 64px - @layout-header-height);
+      overflow: auto;
+    }
+    .@{table-prefix-cls}-cell {
+      &:last-child {
+        padding-right: 24px;
+        border-right: 0 !important;
+      }
+    }
+    .@{table-prefix-cls}-pagination.@{pagination-prefix-cls} {
+      margin: 0;
+      padding: 16px 24px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: -1px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #eee;
+      }
+    }
+    .@{table-prefix-cls}.@{table-prefix-cls}-bordered
+      > .@{table-prefix-cls}-container {
+      border-left: 0;
+    }
+  }
+}

@@ -1,0 +1,254 @@
+@import "~@/assets/fonts/index.css";
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 600;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.6em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.2em;
+}
+h6 {
+  font-size: 1em;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@d-values: flex, inline-flex, table, table-cell, block, inline-block, inline;
+.d {
+  .for(@index) when (@index > 0) {
+    .for((@index - 1));
+    @value: extract(@d-values, @index);
+    &-@{value} {
+      display: @value;
+    }
+  }
+  .for(length(@d-values));
+}
+
+@align-items-values: flex-start, flex-end, center, baseline, stretch;
+.align-items {
+  .for(@index) when (@index > 0) {
+    .for((@index - 1));
+    @value: extract(@align-items-values, @index);
+    &-@{value} {
+      align-items: @value;
+    }
+  }
+  .for(length(@align-items-values));
+}
+
+@justify-content-values: flex-start, flex-end, center, space-between,
+  space-around;
+.justify-content {
+  .for(@index) when (@index > 0) {
+    .for((@index - 1));
+    @value: extract(@justify-content-values, @index);
+    &-@{value} {
+      justify-content: @value;
+    }
+  }
+  .for(length(@justify-content-values));
+}
+
+@flex-direction-values: row, row-reverse, column, column-reverse;
+.flex-direction {
+  .for(@index) when (@index > 0) {
+    .for((@index - 1));
+    @value: extract(@flex-direction-values, @index);
+    &-@{value} {
+      flex-direction: @value;
+    }
+  }
+  .for(length(@flex-direction-values));
+}
+
+// 覆盖 Ant Design 部分样式
+.@{menu-prefix-cls} {
+  background: none !important;
+  &-vertical,
+  &-vertical-left,
+  &-vertical-right,
+  &-inline {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      margin-left: @menu-item-vertical-margin !important;
+      margin-right: @menu-item-vertical-margin;
+    }
+  }
+  &-submenu > .@{menu-prefix-cls} {
+    background-color: @menu-popup-bg !important;
+  }
+}
+.@{btn-prefix-cls} {
+  &-icon-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & > .@{iconfont-css-prefix} {
+    line-height: 0;
+  }
+  &-loading {
+    &,
+    &-icon {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    &-icon {
+      & + span {
+        display: none;
+      }
+      .@{iconfont-css-prefix} {
+        padding-right: 0 !important;
+        font-size: 1.2em !important;
+      }
+    }
+  }
+}
+.@{form-prefix-cls} {
+  &.hidden-label {
+    .@{form-item-prefix-cls}-label {
+      display: none !important;
+    }
+  }
+}
+.@{dialog-prefix-cls} {
+  &-content {
+    border-radius: 6px;
+  }
+  &-header {
+    border-radius: 6px 6px 0 0;
+    .@{dialog-prefix-cls}-title {
+      font-size: 16px;
+    }
+  }
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button + button {
+      margin-left: 16px;
+    }
+    .@{btn-prefix-cls}-primary {
+      box-shadow: 0 2px 12px rgba(@primary-color, 0.65);
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
+.@{confirm-prefix-cls} {
+  &-body {
+    .@{confirm-prefix-cls}-title {
+      font-size: 16px;
+      padding-top: 1px;
+    }
+  }
+  & &-btns {
+    button + button {
+      margin-left: 16px;
+    }
+    .@{btn-prefix-cls}-primary {
+      box-shadow: 0 2px 12px rgba(@primary-color, 0.65);
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
+.@{upload-prefix-cls} {
+  &-list-item-card-actions {
+    right: 16px !important;
+    &-btn.@{btn-prefix-cls}-sm {
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50%;
+    }
+    &.picture {
+      top: 16px !important;
+    }
+  }
+  &-list-item {
+    &-list-type-text {
+      height: 44px !important;
+      .@{upload-prefix-cls}-list-item-info {
+        padding: 0 5px 0 12px !important;
+        border-radius: 4px !important;
+        border: 1px solid #eee;
+      }
+      .@{upload-prefix-cls}-list-item-progress {
+        bottom: -10px !important;
+        padding-left: 0 !important;
+      }
+    }
+  }
+}
+.@{pagination-prefix-cls} {
+  &-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  &-prev,
+  &-next {
+    .@{pagination-prefix-cls}-item-link {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  }
+}
+
+.has-collapsed .@{message-prefix-cls} {
+  left: @layout-sider-width;
+  width: auto;
+  right: 0;
+}
+.has-collapsed.min-collapsed .@{message-prefix-cls} {
+  left: @layout-sider-width-min;
+}
+
+.notification-upload-tips {
+  padding: 24px;
+  .ant-notification-notice-message {
+    display: none;
+  }
+}
+
+.has-collapsed.min-collapsed .bf-controlbar.fixed-bar {
+  left: @layout-sider-width-min !important;
+}

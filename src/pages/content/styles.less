@@ -1,0 +1,122 @@
+.types {
+  :global {
+    .@{tree-prefix-cls} {
+      &-switcher {
+        display: none;
+      }
+      &-directory {
+        .@{tree-prefix-cls}-treenode {
+          &:before,
+          &:hover:before {
+            border-radius: 0;
+          }
+          &.is-hover:not(.@{tree-prefix-cls}-treenode-selected):before {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+      &-node-content-wrapper {
+        min-height: 40px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 10px 0 20px;
+        .@{tree-prefix-cls}-title {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .title {
+            width: 100%;
+            flex: 1 1 auto;
+            max-width: calc(100% - 29px);
+            .name {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              flex: 1 1 auto;
+              max-width: calc(100% - 20px);
+              padding-top: 2px;
+            }
+          }
+          &::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            margin-right: 5px;
+            flex: 0 0 auto;
+            background: url("~@/assets/images/folder.png") no-repeat center /
+              auto 50%;
+          }
+        }
+        .@{tree-prefix-cls}-iconEle {
+          flex: 0 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.listHeader {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #eee;
+    z-index: 1;
+  }
+  h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+.articleHeader {
+  padding: 0 24px;
+}
+
+.table {
+  height: calc(100vh - 64px - @layout-header-height);
+  :global {
+    .@{table-prefix-cls} {
+      height: calc(100vh - 64px - 64px - @layout-header-height);
+      overflow: auto;
+    }
+    .@{table-prefix-cls}-cell {
+      &:last-child {
+        padding-right: 24px;
+        border-right: 0 !important;
+      }
+    }
+    .@{table-prefix-cls}-pagination.@{pagination-prefix-cls} {
+      margin: 0;
+      padding: 16px 24px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: -1px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #eee;
+      }
+    }
+    .@{table-prefix-cls}.@{table-prefix-cls}-bordered
+      > .@{table-prefix-cls}-container {
+      border-left: 0;
+    }
+  }
+}

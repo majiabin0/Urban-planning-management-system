@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  :global {
+    .@{btn-prefix-cls} {
+      & + .@{btn-prefix-cls} {
+        margin-left: 12px;
+      }
+    }
+    .@{avatar-prefix-cls} {
+      margin-left: 20px;
+    }
+  }
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}

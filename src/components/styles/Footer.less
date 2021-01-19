@@ -1,0 +1,48 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1;
+  a {
+    color: currentColor;
+    &:hover {
+      color: @primary-color;
+    }
+  }
+  menu {
+    display: flex;
+    align-items: center;
+    button {
+      padding: 0;
+      height: auto;
+      line-height: 1;
+      font-size: 12px;
+      color: currentColor;
+    }
+    div {
+      position: relative;
+      white-space: nowrap;
+      &:not(:first-child) {
+        margin-left: 1em;
+        &:after {
+          content: "";
+          position: absolute;
+          left: -1em;
+          top: 1px;
+          bottom: 1px;
+          width: 1px;
+          background-color: currentColor;
+          opacity: 0.15;
+        }
+      }
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
+    }
+  }
+}
+
+.copyright {
+  white-space: nowrap;
+}
